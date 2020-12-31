@@ -1,4 +1,8 @@
 .DS_Store
 env/
 ezalgorithms/temp.py
-
+ezalgorithms/__pycache__/
+ezalgorithms/errors/__pycache__/
+ezalgorithms/main/__pycache__/
+ezalgorithms/sorting/__pycache__/
+ezalgorithms/users/__pycache__/
