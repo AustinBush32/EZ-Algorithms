@@ -1,0 +1,193 @@
+{% extends "topic_layout.html" %}
+<!------------------------------------------------------->
+{% block main_body %}
+<p>
+Quicksort is among one of the most efficient sorting algorithms out there and is a great choice 
+if your goal is to sort in linear time or better with a small amount of additional memory to 
+perform the sorting. It is a divide and conquer algorithm and works off the of the idea of picking 
+a pivot element in the list and partitioning the list around that element. The key to Quicksort is 
+this partition() algorithm. The main function of partition is given a pivot element x and its list, 
+put x in its correct sorted place within the list. All this entails is placing all elements less than 
+x before it and all element greater than x after it in the list and recursively doing these steps until 
+the entire list is sorted. Although, picking a pivot is very important and can impact the worst case 
+performance drastically. Say the list we are trying to sort is already sorted and we pick the first 
+element as the pivot, all of a sudden our time complexity goes to O(n^2) because for every partition 
+our sublist will be of size n-1, thus resulting in worst case time complexity. There are several ways 
+to pick a pivot:
+</p>
+<ol>
+    <li>Always pick the first element</li>
+    <li>Always pick the last element</li>
+    <li>Always pick the middle element</li>
+    <li>Pick a random element as the pivot</li>
+    <li>Pick the median as pivot</li>
+</ol>
+<p>
+I like to pick the the middle element as the pivot because you avoid picking the smallest or largest 
+element in the list if it was already sorted virtually eliminating the possibility of hitting 
+worst case time complexity. You also don’t have the overhead of computing the median element in the list.
+<br><br>
+To visualize Quicksort, the easiest thing to do is to draw a tree. In the below illustration I have the 
+pivot element at each step highlighted. As you can see elements that are less than the pivot go to the 
+left and elements greater than the pivot go to the right on each level of the tree. When the tree is 
+reduced to one element the only thing to do is combine those elements and we are left with a sorted list.
+</p>
+<div class="spacer10"></div>
+<img src="{{ url_for('static', filename='assets/quicksort-tree.png') }}" class="topic-img">
+<div class="spacer10"></div>
+<p>
+<br><br>
+Below is the implementation of Quicksort written in python:
+<div class="content-section">
+    <code>
+        <pre>
+""" 
+l: List to be sorted
+left: Left most index
+right: right most index
+"""
+def quicksort(l, left, right):
+    if (left < right): 
+		"""
+		We divide the list into sublists around the pivot index. This is the divide
+		and conquer phase of the algorithm, the real work of the sort is done in
+		partition method, so there is nothing else to do here.
+		"""
+		pIndex = partition(l, left, right)
+		quicksort(l, left, pIndex-1)
+		quicksort(l, pIndex+1, right)
+
+"""
+This function takes middle element as pivot, places 
+the pivot element at its correct position in the sorted 
+list, and places all smaller elements to left of 
+pivot and all greater elements to right of pivot
+
+l: List to be partitioned
+left: Left most index
+right: Right most index
+"""
+def partition(l, left, right):
+	pivotIndex = (right-left)//2 + left
+	pivot = l[pivotIndex] 
+	swap(l, pivotIndex, right) #move pivot to the end of the sublist
+	p = left #p will become the final index of the pivot.
+	for i in range(left, right):
+		if l[i] < pivot:
+			"""
+			if the element at index i is less than the pivot than swap that element
+			with the left most open spot.
+			"""
+			swap(l, i, p)
+			p += 1
+	swap(l, p, right) #move the pivot to its correct location
+	return p
+
+""" 
+l: List
+a: First element to swap
+b: Second element to swap
+"""
+def swap(l, a, b):
+	l[b], l[a] = l[a], l[b]
+        </pre>
+    </code>
+<div class="spacer10"></div>
+</div>
+</p>
+<h2>Summary</h2>
+<table>
+    <tr>
+      <th>Worst Case</th>
+      <th>Average Case</th> 
+      <th>Best Case</th>
+      <th>In-Place?</th>
+      <th>Stable?</th> 
+      <th>Adaptive?</th>
+    </tr>
+    <tr>
+        <th>O(N^2)</th>
+        <th>O(Nlog(N))</th> 
+        <th>O(Nlog(N))</th>
+        <th>Yes</th>
+        <th>No</th> 
+        <th>No</th>
+      </tr>
+  </table>
+{% endblock main_body %}
+<!------------------------------------------------------->
+{% block problem %}
+<h2>Colin and Ryan</h2>
+<p>
+Colin and Ryan had a party. They baked C cookies and invited G guests. Each guest ate Q cookies, 
+and R cookies were left (R < Q).
+<br>
+<h2>Input</h2>
+The first line of input gives the number of cases, N. N test cases follow. Each one is a line 
+containing C and R (at most 2000000000).
+<br><br>
+<h2>Output</h2>
+For each test case, output one line containing ‘Case #x:’ followed by Q — the number of cookies each 
+guest ate. If there are multiple answers, print them in increasing order, separated by spaces. Do not 
+print trailing spaces. Print a ‘0’ in the case when R = C.
+<br><br>
+</p>
+{% endblock problem %}
+<!------------------------------------------------------->
+{% block input %}
+<p>
+4<br>10 0<br>13 2<br>300 98<br>1000 997
+</p>
+{% endblock input %}
+<!------------------------------------------------------->
+{% block output %}
+Case #1: 1 2 5 10<br>Case #2: 11<br>Case #3: 101 202<br>Case #4:
+{% endblock output %}
+<!------------------------------------------------------->
+{% block solution %}
+<code>
+    <pre>
+import math
+
+def quicksort(l, left, right):
+	if (left < right): 
+		pIndex = partition(l, left, right)
+		quicksort(l, left, pIndex-1)
+		quicksort(l, pIndex+1, right)
+
+def partition(l, left, right):
+	pivotIndex = (right-left)//2 + left
+	pivot = l[pivotIndex] 
+	swap(l, pivotIndex, right)
+	p = left
+	for i in range(left, right):
+		if l[i] < pivot:
+			swap(l, i, p)
+			p += 1
+	swap(l, p, right)
+	return p
+
+def swap(l, a, b):
+	l[b], l[a] = l[a], l[b]
+
+n = int(sys.stdin.readline())
+
+for i in range(n):
+	line = list(map(int, sys.stdin.readline().strip().split(" ")))
+	g = list()
+	cookies_eaten = line[0] - line[1]
+	if cookies_eaten == 0: 
+		sys.stdout.write(f"Case #{i+1}: 0\n")
+	else:
+		for q in range(1, int(math.sqrt(cookies_eaten)) + 1):
+			if cookies_eaten%q == 0:
+				if q > line[1]:
+					g.append(q)
+				if cookies_eaten//q != q:
+					if cookies_eaten//q > line[1]:
+						g.append(cookies_eaten//q)
+		quicksort(g, 0, len(g)-1)
+		sys.stdout.write(f"Case #{i+1}: {' '.join(map(str, g))}\n")
+    </pre>
+</code>
+{% endblock solution %}

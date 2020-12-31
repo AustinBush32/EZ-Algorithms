@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <h1 class="center">{{ title }}</h1>
+    {% block main_body %}{% endblock main_body %}
+    <div class="spacer10"></div>
+    <div class="spacer10"></div>
+    <h1 class="center">Programming Problem</h1>
+    {% block problem %}{% endblock problem %}
+    <div class="contianer">
+        <div class="row">
+            <div class="col">
+                <div class="media content-section-size-adjusted">
+                    <div class="media-body">
+                        <h2>Sample Input</h2>
+                        <div class="spacer10"></div>
+                        {% block input %}{% endblock input %}
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="media content-section-size-adjusted">
+                    <div class="media-body">
+                        <h2>Sample output</h2>
+                        <div class="spacer10"></div>
+                        {% block output %}{% endblock output %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="spacer10"></div>
+    {% set pressed = false %}
+    <p>
+        <div>
+            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Show Solution
+            </button>
+            {% if current_user.is_authenticated and topic not in completed%}
+                <a href="{{ url_for('sorting.complete_topic', topic=topic) }}" class='btn btn-dark mt-1 mb-1'>Mark As Completed</a>
+            {% endif %}
+        </div>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            {% block solution %}{% endblock solution %}
+        </div>
+    </div>
+    <div class="spacer10"></div>
+</div>
+{% endblock content %}

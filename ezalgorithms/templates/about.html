@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container h-100 content-section">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col">
+                <article class="media">
+                    <div class="media-body">
+                        <h2>Start Learning Algorithms</h2>
+                        <p>
+Start learning algorithms today in the simplest and easiest way possible. Whether you are a seasoned 
+programmer or a beginner, EZ Algorithms is a valuable resource to teach you a new algorithm or simply 
+refresh your memory. Begin by clicking on “Lessons” and select the category of algorithms you are 
+looking for to view our catalog.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="spacer10"></div>
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-lg-9 col-12">
+                <div class="media">
+                    <div class="media-body">
+                        <h2>Mission</h2>
+                        <p>
+Our mission is to make learning algorithms easy. We want to provide only the information necessary 
+to learn and use an algorithm. Gone are the days of sifting through long and confusing text books or 
+web pages to grasp the algorithm concepts. EZ Algorithms will contain lessons on most algorithms in 
+topic such as sorting, dynamic programming, greedy algorithms and graph algorithms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-lg-block col-3">
+                <img src="{{ url_for('static', filename='assets/cs_circle.png') }}" class="media-object about-img">
+            </div>
+        </div>
+        <div class="spacer10"></div>
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="d-none d-lg-block col-3">
+                <img src="{{ url_for('static', filename='assets/dke-logo.jpg') }}" class="media-object about-img">
+            </div>
+            <div class="col-lg-9 col-12">
+                <article class="media">
+                    <div class="media-body">
+                        <h2>Approach</h2>
+                        <p>
+Each lesson will contain the bare minimum necessary for you to learn and use an algorithm in addition to 
+a programming problem that uses the skills in that lesson to re-enforce you're learning. I encourage everyone 
+to attempt each programming problem on their own, but a solution will be available for anyone who wants to view 
+it.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="spacer10"></div>
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col">
+                <article class="media">
+                    <div class="media-body">
+                        <h2>About Me</h2>
+                        <p>
+This website was created and is maintained by one person. I am currently a Software Engineering student and one 
+of my favorite hobbies is competitive programming. I enjoy learning about and using algorithms to solve problems, 
+so what better way to enhance what I enjoy doing than to share my knowledge with everyone! I hope to inspire 
+anyone interested in computer science to continue to learn and use their skills by demonstrating how easy easy 
+it is to use algorithms.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

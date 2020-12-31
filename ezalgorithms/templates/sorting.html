@@ -1,0 +1,132 @@
+{% extends "lesson_layout.html" %}
+
+{% block zero_zero %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        {% if completed and "quick-sort" in completed %}
+            <i class="far fa-check-square"></i>
+        {% endif %}
+        <img src="{{ url_for('static', filename='assets/quick_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="{{ url_for('sorting.quick_sort') }}">Quicksort</a></h2>
+        <p>
+Quicksort is a comparison sort based on the divide-and-conquer strategy that is asymptotically optinal
+ for comparison sorting.<br><br>
+        </p>
+    </div>
+</article>
+{% endblock zero_zero %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block zero_one %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        
+        <img src="{{ url_for('static', filename='assets/bubble_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Bubble Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock zero_one %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block zero_two %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        <img src="{{ url_for('static', filename='assets/heapsort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Heap Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock zero_two %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block one_zero %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        <img src="{{ url_for('static', filename='assets/insertion_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Insertion Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock one_zero %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block one_one %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        <img src="{{ url_for('static', filename='assets/merge_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Merge Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock one_one %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block one_two %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        <img src="{{ url_for('static', filename='assets/selection_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Selection Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock one_two %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block two_zero %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        <img src="{{ url_for('static', filename='assets/radix_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Radix Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock two_zero %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block two_one %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        <img src="{{ url_for('static', filename='assets/shell_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Shell Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock two_one %}
+
+<!------------------------------------------------------------------------------------------------->
+
+{% block two_two %}
+<article class="media content-section-size-adjusted">
+    <div class="media-body">
+        <img src="{{ url_for('static', filename='assets/counting_sort.gif') }}" class="article-img">
+        <h2><a class="article-title" href="#">Counting Sort</a></h2>
+        <p>
+Comming Soon.
+        </p>
+    </div>
+</article>
+{% endblock two_two %}
+
+<!------------------------------------------------------------------------------------------------->
