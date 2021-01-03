@@ -26,25 +26,25 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
+                        <a class="nav-item nav-link {% if title == 'About' %}active{% endif %}" href="{{ url_for('main.about') }}">About</a>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle {% if (title != 'About') and (title != 'Account') and (title != 'Login') and (title != 'Register') %}active{% endif %}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Lessons
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url_for('main.sorting') }}">Sorting Algorithms</a>
                                 <a class="dropdown-item" href="{{ url_for('main.graph') }}">Graph Algorithms</a>
-                                <a class="dropdown-item" href="{{ url_for('main.other_algorithms') }}">Other Algorithms</a>
+                                <a class="dropdown-item" href="{{ url_for('main.other') }}">Other Algorithms</a>
                         </li>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if current_user.is_authenticated %}
-                            <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
+                            <a class="nav-item nav-link {% if title == 'Account' %}active{% endif %}" href="{{ url_for('users.account') }}">Account</a>
                             <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
                         {% else %}
-                            <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
-                            <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
+                            <a class="nav-item nav-link {% if title == 'Register' %}active{% endif %}" href="{{ url_for('users.register') }}">Register</a>
+                            <a class="nav-item nav-link {% if title == 'Login' %}active{% endif %}" href="{{ url_for('users.login') }}">Login</a>
                         {% endif %}
                     </div>
                 </div>
@@ -81,7 +81,7 @@ only the information necessary to to get started using an algorithm in as little
                     <ul class="footer-links">
                         <li><a href="{{ url_for('main.sorting') }}">Sorting Algorithms</a></li>
                         <li><a href="{{ url_for('main.graph') }}">Graph Algorithms</a></li>
-                        <li><a href="{{ url_for('main.other_algorithms') }}">Other</a></li>
+                        <li><a href="{{ url_for('main.other') }}">Other</a></li>
                     </ul>
                 </div>
     
@@ -109,8 +109,8 @@ only the information necessary to to get started using an algorithm in as little
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                        <li><a class="github" href="https://github.com/AustinBush32/EZ-Algorithms"><i class="fab fa-github"></i></a></li>
-                        <li><a class="linkedin" href="https://www.linkedin.com/in/austin-bush-46914a16a/"><i class="fab fa-linkedin"></i></a></li>   
+                        <li><a class="github" target="_blank" rel="noopener noreferrer" href="https://github.com/AustinBush32/EZ-Algorithms"><i class="fab fa-github"></i></a></li>
+                        <li><a class="linkedin" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/austin-bush-46914a16a/"><i class="fab fa-linkedin"></i></a></li>   
                     </ul>
                 </div>
             </div>

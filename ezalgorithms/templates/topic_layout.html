@@ -37,7 +37,7 @@
                 Show Solution
             </button>
             {% if current_user.is_authenticated and topic not in completed%}
-                <a href="{{ url_for('sorting.complete_topic', topic=topic) }}" class='btn btn-dark mt-1 mb-1'>Mark As Completed</a>
+                {% block completed %}{% endblock completed %}
             {% endif %}
         </div>
     </p>

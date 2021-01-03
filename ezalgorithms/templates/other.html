@@ -45,10 +45,13 @@ Comming Soon.
 {% block one_zero %}
 <article class="media content-section-size-adjusted">
     <div class="media-body">
+        {% if completed and "binary-search" in completed %}
+        <i class="far fa-check-square"></i>
+        {% endif %}
         <img src="{{ url_for('static', filename='assets/binary_search.gif') }}" class="article-img">
-        <h2><a class="article-title" href="#">Binary Search</a></h2>
+        <h2><a class="article-title" href="{{ url_for('other.binary_search') }}">Binary Search</a></h2>
         <p>
-Comming Soon.
+Binary search is an optimal searching algorithm for sorted arrays.
         </p>
     </div>
 </article>

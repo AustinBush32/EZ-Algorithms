@@ -24,11 +24,13 @@ def create_app(config_class=Config):
     from ezalgorithms.main.routes import main
     from ezalgorithms.users.routes import users
     from ezalgorithms.sorting.routes import sorting
+    from ezalgorithms.other.routes import other
     from ezalgorithms.errors.handlers import errors
 
     app.register_blueprint(main)
     app.register_blueprint(users)
     app.register_blueprint(sorting)
+    app.register_blueprint(other)
     app.register_blueprint(errors)
 
     return app

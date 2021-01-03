@@ -144,6 +144,10 @@ print trailing spaces. Print a ‘0’ in the case when R = C.
 Case #1: 1 2 5 10<br>Case #2: 11<br>Case #3: 101 202<br>Case #4:
 {% endblock output %}
 <!------------------------------------------------------->
+{% block completed %}
+    <a href="{{ url_for('sorting.complete_topic', topic=topic) }}" class='btn btn-dark mt-1 mb-1'>Mark As Completed</a>
+{% endblock completed %}
+<!------------------------------------------------------->
 {% block solution %}
 <code>
     <pre>

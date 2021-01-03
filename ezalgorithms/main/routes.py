@@ -19,8 +19,16 @@ def sorting():
 
 @main.route('/graph')
 def graph():
-    return render_template('graph.html', title='Graph', lesson='Graph Algorithms')
+    completed = None
+    if current_user.is_authenticated:
+        completed = Complete.query.filter_by(author=current_user)
+        completed = [x.title for x in completed]
+    return render_template('graph.html', title='Graph', lesson='Graph Algorithms', completed=completed)
 
-@main.route('/other_algorithms')
-def other_algorithms():
-    return render_template('other.html', title='Other', lesson='Other Algorithms')
+@main.route('/other')
+def other():
+    completed = None
+    if current_user.is_authenticated:
+        completed = Complete.query.filter_by(author=current_user)
+        completed = [x.title for x in completed]
+    return render_template('other.html', title='Other', lesson='Other Algorithms', completed=completed)
